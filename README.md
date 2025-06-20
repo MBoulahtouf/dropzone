@@ -48,7 +48,7 @@ Ensure you have the following system-level dependencies installed:
 # On Debian/Ubuntu
 sudo apt-get update
 sudo apt-get install -y tesseract-ocr tesseract-ocr-fra tesseract-ocr-ara poppler-utils
-
+```
 ### 2. Installation
 
 Clone the repository and install the Python dependencies using Poetry.
@@ -57,6 +57,7 @@ Clone the repository and install the Python dependencies using Poetry.
 git clone [https://github.com/YourUsername/dropzone.git](https://github.com/YourUsername/dropzone.git)
 cd dropzone
 poetry install
+```
 
 ### 3. Running the Data Pipeline
 
@@ -65,21 +66,21 @@ Execute the full pipeline to scrape the documents, perform OCR, parse them, and 
 ```bash
 # Run the pipeline on a small sample first (e.g., 3 files from 2024)
 poetry run python tools/run_full_pipeline.py --start-year 2024 --end-year 2024 --limit 3
-
+```
 ### 4. Ingesting Data into the Database
 
 This script creates the vector embeddings and populates the SQLite database.
 
 ```bash
 poetry run python tools/ingest_to_db.py
-
+```
 ### 5. Launching the API
 
 Start the FastAPI server.
 
 ```bash 
 poetry run uvicorn main:app --reload
-
+```
 
 The API will be live at http://127.0.0.1:8000. You can access the interactive documentation at http://127.0.0.1:8000/docs.
 
